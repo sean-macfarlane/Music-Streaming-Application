@@ -8,7 +8,11 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<% if current_user %>
+<% if @user.id == current_user.id %>
 <%= link_to 'Edit Account', edit_user_path(@user) %> 
+<% end %>
+<% end %>
 </div>
 </div>
 <br/>
