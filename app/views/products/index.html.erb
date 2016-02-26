@@ -1,0 +1,18 @@
+<h1>All Music:</h1>
+<% if @products.blank? %>
+<p>There is currently no music in the system right now.</p>
+<% else %>
+<table class="table table-bordered">
+<% @products.each do |product| %>
+  <tr><div class="row featurette">
+<td><div class="col-md-4">
+		<%= link_to image_tag(product.image.url, class: 'media-object picture'), product %>
+	</div>
+	<div class="col-md-8">
+		<h2><%= link_to product.name, product %></h2>
+		<p><%= product.description %></p>
+	</div></td>
+</div></tr>
+<% end %>
+</table>
+<% end %>
