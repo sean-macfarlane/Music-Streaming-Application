@@ -23,6 +23,14 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+	if current_user 
+		if @product.user_id != current_user.id
+			redirect_to root_path
+		end
+	else 
+		redirect_to root_path
+	end
+  
 	@product = Product.find(params[:id])
      @categories = Category.all
   end

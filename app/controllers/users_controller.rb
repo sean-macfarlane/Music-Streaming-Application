@@ -4,6 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+  	if logged_in? 
+		if !current_user.isAdmin
+			redirect_to root_path
+		end
+	else
+		redirect_to root_path
+	end
     @users = User.all
   end
 
@@ -19,6 +26,13 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+	if current_user 
+		if @user.id != current_user.id
+			redirect_to root_path
+		end
+	else 
+		redirect_to root_path
+	end
   end
 
   # POST /users

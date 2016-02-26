@@ -1,5 +1,4 @@
-<% if logged_in? %>
-		  <% if current_user.isAdmin %>
+
 <h1>Listing Categories</h1>
 <%= link_to 'New Category', new_category_path %>
 <table>
@@ -25,5 +24,3 @@
 <br/>
 <br/>
 <%= link_to 'Listing Users', users_path %>
-<% end %>
-<% end %>
